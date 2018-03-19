@@ -1,0 +1,233 @@
+﻿<Window x:Class="coinoneAlarm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:coinoneAlarm"
+        mc:Ignorable="d"
+        Title="Coinone Alarm" Height="550" Width="440" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Closing="WindowClosing">
+    <Window.Resources>
+        <Image x:Key="noticeOnBtc" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffBtc" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnBch" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffBch" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnEth" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffEth" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnEtc" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffEtc" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnXrp" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffXrp" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnQtum" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffQtum" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnLtc" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffLtc" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnIota" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffIota" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="noticeOnBtg" Source="../../Resources/icon_notice_on.png" Height="20"/>
+        <Image x:Key="noticeOffBtg" Source="../../Resources/icon_notice_off.png" Height="20"/>
+        <Image x:Key="auth" Source="../../Resources/icon_auth.png" Height="18" Stretch="Uniform"/>
+    </Window.Resources>
+    <Grid>
+        <!-- Column Width -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Row Height -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <!-- UI Top Layout : Auth Section -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="9" Name="borderTop" Background="Gray"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" Name="tbAccessed" TextAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" Foreground="White" Text="### Authorized Successfully ###"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Name="tbAccessKey" Text="Key"/>
+        <PasswordBox Grid.Row="0" Grid.Column="3" Margin="2,3" MaxLength="256" Name="tbAccessKeyInput"/>
+        <TextBlock Grid.Row="0" Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center" Name="tbAccessToken" Text="Token"/>
+        <PasswordBox Grid.Row="0" Grid.Column="6" Margin="2,3" MaxLength="256" Name="tbAccessTokenInput"/>
+        <Button Grid.Row="0" Grid.Column="7" BorderThickness="0" Background="DarkGray" Margin="2,3" Name="btAuth" Click="ButtonAuthClick">
+            <DynamicResource ResourceKey="auth"/>
+        </Button>
+
+        <!-- Images : Coin Symbols & Horizontal Line (Fixed) -->
+        <Image Height="20" Grid.Column="1" Grid.Row="2" Source="../../Resources/coin_logo_btc.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="5" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="6" Source="../../Resources/coin_logo_bch.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="9" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="10" Source="../../Resources/coin_logo_eth.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="13" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="14" Source="../../Resources/coin_logo_etc.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="17" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="18" Source="../../Resources/coin_logo_xrp.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="21" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="22" Source="../../Resources/coin_logo_qtum.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="25" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="26" Source="../../Resources/coin_logo_ltc.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="29" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="30" Source="../../Resources/coin_logo_iota.png"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="33" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <Image Height="20" Grid.Column="1" Grid.Row="34" Source="../../Resources/coin_logo_btg.jpg"/>
+        <Image Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="37" Source="../../Resources/line_horizon.png" Stretch="Fill"/>
+
+        <!-- TextBlocks : Coin Currency (Fixed) -->
+        <TextBlock Grid.Row="2" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 BTC</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 BCH</TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 ETH</TextBlock>
+        <TextBlock Grid.Row="14" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 ETC</TextBlock>
+        <TextBlock Grid.Row="18" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 XRP</TextBlock>
+        <TextBlock Grid.Row="22" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 QTUM</TextBlock>
+        <TextBlock Grid.Row="26" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 LTC</TextBlock>
+        <TextBlock Grid.Row="30" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 IOTA</TextBlock>
+        <TextBlock Grid.Row="34" Grid.Column="4" FontSize="9" FontWeight="Bold">/  1 BTG</TextBlock>
+
+        <!-- TextBlocks : Coin Price (Variable) -->
+        <TextBlock Grid.Row="2" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbBtcPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbBtcPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbBtcPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbBchPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbBchPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbBchPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="10" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbEthPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbEthPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbEthPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="14" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbEtcPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbEtcPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbEtcPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="18" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbXrpPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbXrpPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="20" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbXrpPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="22" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbQtumPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="23" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbQtumPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="24" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbQtumPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="26" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbLtcPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="27" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbLtcPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="28" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbLtcPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="30" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbIotaPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="31" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbIotaPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="32" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbIotaPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+        
+        <TextBlock Grid.Row="34" Grid.Column="3" TextAlignment="Right" Margin="0, 0, 3, 0" FontSize="15" Foreground="DarkGray" Name="tbBtgPrice" Text="1 KRW"/>
+        <TextBlock Grid.Row="35" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="IndianRed" Name="tbBtgPriceMax" Text="Highest in 24 hours - 1 KRW"/>
+        <TextBlock Grid.Row="36" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Left" FontSize="9" Foreground="SlateBlue" Name="tbBtgPriceMin" Text="Lowest price in 24 hours - 1 KRW"/>
+
+        <!-- TextBlocks : Coin Balance -->
+        <TextBlock Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbBtcBalance"/>
+        <TextBlock Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbBchBalance"/>
+        <TextBlock Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbEthBalance"/>
+        <TextBlock Grid.Row="15" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbEtcBalance"/>
+        <TextBlock Grid.Row="19" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbXrpBalance"/>
+        <TextBlock Grid.Row="23" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbQtumBalance"/>
+        <TextBlock Grid.Row="27" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbLtcBalance"/>
+        <TextBlock Grid.Row="31" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbIotaBalance"/>
+        <TextBlock Grid.Row="35" Grid.Column="6" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="9" Foreground="Black" Name="tbBtgBalance"/>
+
+        <!-- Buttons : Notice -->
+        <Button Grid.Row="2" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeBtc" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffBtc"/>
+        </Button>
+
+        <Button Grid.Row="6" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeBch" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffBch"/>
+        </Button>
+
+        <Button Grid.Row="10" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeEth" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffEth"/>
+        </Button>
+
+        <Button Grid.Row="14" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeEtc" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffEtc"/>
+        </Button>
+
+        <Button Grid.Row="18" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeXrp" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffXrp"/>
+        </Button>
+
+        <Button Grid.Row="22" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeQtum" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffQtum"/>
+        </Button>
+
+        <Button Grid.Row="26" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeLtc" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffLtc"/>
+        </Button>
+
+        <Button Grid.Row="30" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeIota" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffIota"/>
+        </Button>
+
+        <Button Grid.Row="34" Grid.Column="7" BorderThickness="0" Background="White" Margin="2,3" Name="btNoticeBtg" Click='ButtonNoticeClick'>
+            <DynamicResource ResourceKey="noticeOffBtg"/>
+        </Button>
+
+        <!-- TextBoxes : Notice -->
+        <TextBox Grid.Row="2" Grid.Column="6" Margin="2,3" Name="tbBtcNoticePrice"/>
+        <TextBox Grid.Row="6" Grid.Column="6" Margin="2,3" Name="tbBchNoticePrice"/>
+        <TextBox Grid.Row="10" Grid.Column="6" Margin="2,3" Name="tbEthNoticePrice"/>
+        <TextBox Grid.Row="14" Grid.Column="6" Margin="2,3" Name="tbEtcNoticePrice"/>
+        <TextBox Grid.Row="18" Grid.Column="6" Margin="2,3" Name="tbXrpNoticePrice"/>
+        <TextBox Grid.Row="22" Grid.Column="6" Margin="2,3" Name="tbQtumNoticePrice"/>
+        <TextBox Grid.Row="26" Grid.Column="6" Margin="2,3" Name="tbLtcNoticePrice"/>
+        <TextBox Grid.Row="30" Grid.Column="6" Margin="2,3" Name="tbIotaNoticePrice"/>
+        <TextBox Grid.Row="34" Grid.Column="6" Margin="2,3" Name="tbBtgNoticePrice"/>
+    </Grid>
+</Window>
